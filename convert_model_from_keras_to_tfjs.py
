@@ -1,0 +1,44 @@
+# coding: utf-8
+
+# - ref: https://js.tensorflow.org/tutorials/import-keras.html
+# - ref: https://github.com/Microsoft/MMdnn/blob/master/mmdnn/conversion/examples/keras/extract_model.py
+
+
+import keras
+import tensorflowjs as tfjs
+
+
+networks_map = {
+    'inception_v3'      : lambda : keras.applications.inception_v3.InceptionV3(input_shape=(299, 299, 3)),
+    'vgg16'             : lambda : keras.applications.vgg16.VGG16(weights='imagenet', include_top=True),
+    'vgg19'             : lambda : keras.applications.vgg19.VGG19(),
+    'resnet'            : lambda : keras.applications.resnet50.ResNet50(),
+    'mobilenet'         : lambda : keras.applications.mobilenet.MobileNet(),
+    'xception'          : lambda : keras.applications.xception.Xception(input_shape=(299, 299, 3)),
+    'inception_resnet'  : lambda : keras.applications.inception_resnet_v2.InceptionResNetV2()
+}
+
+image_size = {
+    'inception_v3'      : 299,
+    'vgg16'             : 224,
+    'vgg19'             : 224,
+    'resnet'            : 224,
+    'mobilenet'         : 224,
+    'xception'          : 299,
+    'inception_resnet'  : 299
+}
+
+
+
+modelname = 'mobilenet'
+#filepath = "./{}.h5".format(modelname)
+tfjs_target_dir = "./tfjs_{}".format(modelname)
+
+
+model = networks_map.get(modelname)()
+
+# save keras
+#model.save(filepath)#containing both the model topology and the weights
+
+# save tfjs
+tfjs.converters.save_keras_model(model, tfjs_target_dir)
