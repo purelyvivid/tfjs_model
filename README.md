@@ -7,14 +7,14 @@
   pip install tensorflowjs
   ```
 
-    2. Then convert models from Keras to Tensorflow.js (refer to [here](convert_model_from_keras_to_tfjs.py))
+    2. Then convert models from **Keras** to Tensorflow.js (refer to [here](convert_model_from_keras_to_tfjs.py))
 
 
 
 - How to **Utilize** these Model Files?
 
   1. Publish Model Files to Web and get the Link of `model.json`. For this case, the URL is : http://mobilenet.purelyvivid_tfjs.nctu.me/tfjs_mobilenet/model.json
-  2. Download https://github.com/tensorflow/tfjs-examples . In the folder of `mobilenet`, open a file named `index.js`. Modify the `const MOBILENET_MODEL_PATH` to the URL of your model.
+  2. Download https://github.com/tensorflow/tfjs-examples . In the folder of `/mobilenet`, open the file named `index.js`. Modify the `const MOBILENET_MODEL_PATH = ...` to the URL of your model.
 
   ![](utilization.png)
 
