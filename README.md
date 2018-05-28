@@ -3,11 +3,11 @@
 
   1. Need to install python library `tensorflowjs` first.
 
-```shell
-pip install tensorflowjs
-```
+  ```shell
+  pip install tensorflowjs
+  ```
 
-  2. Then convert models from Keras to Tensorflow.js (refer to [here](convert_model_from_keras_to_tfjs.py))
+    2. Then convert models from Keras to Tensorflow.js (refer to [here](convert_model_from_keras_to_tfjs.py))
 
 
 
